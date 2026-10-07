@@ -51,9 +51,13 @@ if not GROQ_API_KEY:
 # LLM
 # =========================
 
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+GROQ_MAX_TOKENS = int(os.getenv("GROQ_MAX_TOKENS", "1000"))
+
 llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
-    api_key=GROQ_API_KEY
+    model=GROQ_MODEL,
+    api_key=GROQ_API_KEY,
+    max_tokens=GROQ_MAX_TOKENS
 )
 
 
